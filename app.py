@@ -27,3 +27,4 @@ if st.button("Generate Use Cases"):
         st.write("**Step 4: Compiling Proposal...**")
         proposal = compile_proposal(insights, use_cases, resources)
         st.markdown(proposal, unsafe_allow_html=True)
+
