@@ -1,0 +1,92 @@
+## High-Level Design (HLD):
+The system consists of a multi-agent architecture where each agent performs a specific task. These agents interact with each other to produce actionable insights, use cases, and resources that enhance operational efficiency and customer experiences using AI/GenAI.
+
+Key Components:
+
+User Interface (UI): Built with Streamlit to allow users to input company information and trigger the workflow.
+Industry Research Agent: Gathers industry insights using search tools (e.g., Tavily, Serper).
+Use Case Generation Agent: Proposes AI/GenAI use cases based on the industry insights.
+Resource Collection Agent: Collects datasets and tools needed to implement the proposed use cases.
+Proposal Compilation Agent: Compiles a final proposal that includes the use cases, resources, and insights.
+High-Level Architecture Flow:
+User Input: The user provides the company's name via the Streamlit UI.
+Industry Research Agent: The agent uses web scraping/search APIs to gather industry-specific data (trends, key focus areas).
+Use Case Generation Agent: Based on the research, this agent generates AI/ML use cases for the company.
+Resource Collection Agent: This agent fetches relevant datasets and tools (e.g., from Kaggle, HuggingFace).
+Proposal Compilation Agent: Compiles all data into a cohesive proposal, which is then displayed on the UI.
+Final Output: The UI presents the generated use cases, resources, and a proposal to the user.
+Flowchart (HLD):
+
+User Input (Streamlit) → Industry Research Agent → Use Case Generation Agent → Resource Collection Agent → Proposal Compilation Agent → UI Output (Report).
+
+## Low-Level Design (LLD)
+The Low-Level Design focuses on the individual components, their internal workings, data flow, and detailed interaction between agents.
+
+Components of the System:
+
+User Interface (UI):
+Framework: Streamlit.
+Role: Facilitates interaction with the user (input company name, view generated report).
+Functionality:
+Input company name.
+Trigger agents.
+Display output (research insights, use cases, resources).
+
+Industry Research Agent:
+Role: Conducts market research to understand the company’s industry, offerings, trends, and focus areas.
+Data Flow:
+Input: Company name.
+Output: Industry insights, trends, strategic focus.
+
+Use Case Generation Agent:
+Role: Proposes AI/GenAI use cases based on industry insights.
+Data Flow:
+Input: Industry insights from the Research Agent.
+Output: AI/GenAI use cases.
+
+Resource Collection Agent:
+Role: Finds datasets and tools necessary for implementing the proposed use cases.
+Data Flow:
+Input: Proposed use cases.
+Output: Datasets and tools (links to Kaggle, HuggingFace, GitHub).
+
+Proposal Compilation Agent:
+Role: Compiles a final proposal that includes the industry insights, use cases, and resource links.
+Data Flow:
+Input: Industry insights, use cases, resources.
+Output: A formatted proposal (text or markdown).
+
+Data Flow and Interaction:
+User Interface:
+User inputs the company name.
+The UI triggers the Industry Research Agent.
+
+Industry Research:
+Research Agent fetches industry-related insights (company’s sector, trends).
+It passes these insights to the Use Case Generation Agent.
+
+Use Case Generation:
+Use Case Generation Agent creates relevant use cases based on the insights and passes them to the Resource Collection Agent.
+Resource Collection:
+
+The Resource Collection Agent fetches relevant resources and tools and hands them to the Proposal Compilation Agent.
+Proposal Compilation:
+
+The Proposal Compilation Agent combines insights, use cases, and resources into a cohesive proposal.
+The Streamlit UI displays the results.
+
+
+Architecture Diagram (Flowchart):
+You can visualize this system with the following flow:
+User Input (Company Name)
+       |
+       v
+Industry Research Agent ---> Use Case Generation Agent ---> Resource Collection Agent ---> Proposal Compilation Agent
+       |                              |                               |                              |
+       v                              v                               v                              v
+   Industry Insights ---> Generated Use Cases ---> Datasets and Tools ---> Final Proposal for User
+
+
+
+## Conclusion
+This design ensures that the system is modular and each agent is responsible for a specific task, ensuring maintainability and scalability. Let me know if you need further details, such as specific technologies or frameworks to use!
